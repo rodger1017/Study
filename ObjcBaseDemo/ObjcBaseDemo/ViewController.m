@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "OBDBasicType.h"
+#import "OBDNSStringDemo.h"
+#import "OBDNSArrayDemo.h"
 
 @interface ViewController ()
 
@@ -19,7 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // 测试 case
-    [OBDBasicType obdNSArrayDemo];
+    //[OBDNSStringDemo obdNSStringDemo];
+    [OBDNSArrayDemo obdNSArrayDemo];
 }
 
 

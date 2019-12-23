@@ -1,8 +1,8 @@
 //
-//  OBDBasicType.h
+//  OBDNSArrayDemo.h
 //  ObjcBaseDemo
 //
-//  Created by rodgerjluo on 2019/12/13.
+//  Created by rodgerjluo on 2019/12/20.
 //  Copyright © 2019 rodgerjluo. All rights reserved.
 //
 
@@ -19,9 +19,8 @@
 
 @end
 
-@interface OBDBasicType : NSObject
+@interface OBDNSArrayDemo : NSObject
 
-+ (void)obdNSStringDemo;
 + (void)obdNSArrayDemo;
 
 @end

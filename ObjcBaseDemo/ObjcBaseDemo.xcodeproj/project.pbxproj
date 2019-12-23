@@ -16,7 +16,8 @@
 		7242032323A1CF3F00D6E494 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242032223A1CF3F00D6E494 /* main.m */; };
 		7242032D23A1CF3F00D6E494 /* ObjcBaseDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242032C23A1CF3F00D6E494 /* ObjcBaseDemoTests.m */; };
 		7242033823A1CF3F00D6E494 /* ObjcBaseDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242033723A1CF3F00D6E494 /* ObjcBaseDemoUITests.m */; };
-		7242034723A34E9500D6E494 /* OBDBaiscType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7242034623A34E9500D6E494 /* OBDBaiscType.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		72D65F9023AC5D9100693B8F /* OBDNSStringDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D65F8F23AC5D9100693B8F /* OBDNSStringDemo.m */; };
+		72D65F9323AC5DC600693B8F /* OBDNSArrayDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D65F9223AC5DC600693B8F /* OBDNSArrayDemo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +56,10 @@
 		7242033323A1CF3F00D6E494 /* ObjcBaseDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjcBaseDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7242033723A1CF3F00D6E494 /* ObjcBaseDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcBaseDemoUITests.m; sourceTree = "<group>"; };
 		7242033923A1CF3F00D6E494 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7242034523A34E7900D6E494 /* OBDBasicType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OBDBasicType.h; sourceTree = "<group>"; };
-		7242034623A34E9500D6E494 /* OBDBaiscType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OBDBaiscType.m; sourceTree = "<group>"; };
+		72D65F8E23AC5D7700693B8F /* OBDNSStringDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OBDNSStringDemo.h; sourceTree = "<group>"; };
+		72D65F8F23AC5D9100693B8F /* OBDNSStringDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OBDNSStringDemo.m; sourceTree = "<group>"; };
+		72D65F9123AC5DAC00693B8F /* OBDNSArrayDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OBDNSArrayDemo.h; sourceTree = "<group>"; };
+		72D65F9223AC5DC600693B8F /* OBDNSArrayDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OBDNSArrayDemo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +121,10 @@
 				7242031E23A1CF3F00D6E494 /* LaunchScreen.storyboard */,
 				7242032123A1CF3F00D6E494 /* Info.plist */,
 				7242032223A1CF3F00D6E494 /* main.m */,
-				7242034523A34E7900D6E494 /* OBDBasicType.h */,
-				7242034623A34E9500D6E494 /* OBDBaiscType.m */,
+				72D65F8E23AC5D7700693B8F /* OBDNSStringDemo.h */,
+				72D65F8F23AC5D9100693B8F /* OBDNSStringDemo.m */,
+				72D65F9123AC5DAC00693B8F /* OBDNSArrayDemo.h */,
+				72D65F9223AC5DC600693B8F /* OBDNSArrayDemo.m */,
 			);
 			path = ObjcBaseDemo;
 			sourceTree = "<group>";
@@ -272,9 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7242034723A34E9500D6E494 /* OBDBaiscType.m in Sources */,
+				72D65F9023AC5D9100693B8F /* OBDNSStringDemo.m in Sources */,
 				7242031823A1CF3E00D6E494 /* ViewController.m in Sources */,
 				7242031223A1CF3D00D6E494 /* AppDelegate.m in Sources */,
+				72D65F9323AC5DC600693B8F /* OBDNSArrayDemo.m in Sources */,
 				7242032323A1CF3F00D6E494 /* main.m in Sources */,
 				7242031523A1CF3D00D6E494 /* SceneDelegate.m in Sources */,
 			);

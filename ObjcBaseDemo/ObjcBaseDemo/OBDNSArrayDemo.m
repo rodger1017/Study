@@ -1,12 +1,12 @@
 //
-//  OBDBaiscType.m
+//  OBDNSArrayDemo.m
 //  ObjcBaseDemo
 //
-//  Created by rodgerjluo on 2019/12/13.
+//  Created by rodgerjluo on 2019/12/20.
 //  Copyright © 2019 rodgerjluo. All rights reserved.
 //
 
-#import "OBDBasicType.h"
+#import "OBDNSArrayDemo.h"
 
 @implementation Person
 
@@ -35,116 +35,7 @@
 
 @end
 
-@implementation OBDBasicType
-
-#pragma mark - NSString & NSMutableString
-// https://developer.apple.com/documentation/foundation/nsstring?language=objc
-+ (void)obdNSStringDemo {
-    // 创建字符串
-    NSString *str = @"test";
-    NSString *str1 = [NSString new];
-    NSString *str2 = [[NSString alloc] initWithString:@"test"];
-    NSString *str3 = [NSString stringWithFormat:@"this is %@", @"test"];
-    NSString *str4 = [[NSString alloc] initWithUTF8String:"测试"];
-    
-    // 获取字符串长度
-    NSUInteger length = str.length;
-    NSLog(@"%@ length:%lu", str, (unsigned long)length);
-    
-    // 获取字符串某个位置字符
-    unichar c = [str characterAtIndex:1];
-    NSLog(@"%c", c);
-    
-    // 截取字符串
-    NSRange range = {1, 2};  //location（索引开始的位置）、length（截取的长度）
-    NSString *subStr1 = [str substringWithRange:range];
-    NSString *subStr2 = [str substringFromIndex:1];
-    NSString *subStr3 = [str substringToIndex:2];
-    NSLog(@"substr1:%@ substr2:%@ substr3:%@", subStr1, subStr2, subStr3);
-    
-    // 获取子字符串在字符串中的索引位置和长度
-    NSRange range1 = [str rangeOfString:@"es"];
-    NSRange range2 = [str rangeOfString:@"ha"]; // 如果未找到 返回{-1, 0}
-    NSLog(@"range1:{%d, %d} range2:{%d, %d}", (int)range1.location, (int)range1.length, (int)range2.location, (int)range2.length);
-    
-    // 判断字符串内容是否相同（内容，不是地址）
-    BOOL isEqual1 = [str isEqualToString:str2];
-    NSLog(@"%@ is%@ equal to %@", str, isEqual1?@"":@" not", str2);
-    BOOL isEqual2 = [str2 isEqualToString:str4];
-    NSLog(@"%@ is%@ equal to %@", str2, isEqual2?@"":@" not", str4);
-    
-    // 替换字符串中的子字符串为给定的字符串
-    NSString * newStr = [str stringByReplacingOccurrencesOfString: @"e" withString: @"a"];
-    NSLog(@"newstr: %@", newStr);
-    
-    // 字符串拼接
-    NSString *joinStr = [str stringByAppendingString: @" objc"];
-    NSLog(@"joinstr: %@", joinStr);
-    
-    // 计算子字符串出现次数
-    NSUInteger count = 0;
-    NSString *str5 = @"testistestestask";
-    NSString *str6 = @"test";
-
-    // i=0 的时候比较123和123，i=1的时候比较23a和123，i=2的时候比较3as和123...以此类推，直到string1遍历完成
-    for(int i=0; i < str5 .length - str6 .length + 1; i++) {
-        // 截取字符串与之比较是否相同
-        if([[str5 substringWithRange:NSMakeRange(i, str6.length)] isEqualToString:str6 ]) {
-            count++;
-        }
-    }
-
-    NSLog(@"%@ contains %d %@",str5, count, str6);
-    
-    // 根据分隔符进行拆分
-    NSString *str7 = @"test1 test2";
-    NSArray *array = [str7 componentsSeparatedByString:@" "];
-    NSLog(@"array: %@", array);
-    
-    // 数字转换
-    NSString *str8 = @"10";
-    BOOL b = [str8 boolValue];
-    int i = [str8 intValue];
-    NSLog(@"b: %d i: %d", b, i);
-    
-    // 大小写切换
-    NSString* str9 =@"hello WORLD";
-    NSString *ucstr = [str9 uppercaseString];   //转成大写
-    NSString *lcstr = [str9 lowercaseString];   //转成小写
-    NSString *cstr = [str9 capitalizedString];  //首字母大写，其余小写
-    NSLog(@"ucstr: %@ lcstr: %@ cstr: %@", ucstr, lcstr, cstr);
-    
-    // 编码
-    NSString *str10 =@"你好啊";
-    NSString *encStr = [str10 stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSLog(@"encstr: %@", encStr);
-    
-    // 解码
-    NSString *str11 =@"\u5982\u4f55\u8054\u7cfb\u5ba2\u670d\u4eba\u5458\uff1f";
-    NSString *decStr = [str11 stringByRemovingPercentEncoding];
-    NSLog(@"decstr: %@", decStr);
-    
-    // 验证
-    NSString *str12 = @"http:www.baidu.com";
-    BOOL prefix = [str12 hasPrefix:@"http"]; //是否是以http开头
-    BOOL suffix = [str12 hasSuffix:@"com"];  //文件路径是否以com结尾
-    NSLog(@"prefix: %d  suffix: %d", prefix, suffix);
-    
-    /// NSMutableString
-    NSMutableString *mstr1 = [[NSMutableString alloc] init];
-    NSLog(@"before append mstr1: %@", mstr1);
-    [mstr1 appendString: @"hello"];
-    NSLog(@"after append mstr1: %@", mstr1);
-    
-    // 在指定的索引位置插入字符串
-    [mstr1 insertString:@" world" atIndex:5];
-    NSLog(@"after insert mstr1: %@", mstr1);
-    
-    // 删除指定范围的字符串
-    NSRange range3 = {0, 6};
-    [mstr1 deleteCharactersInRange:range3];
-    NSLog(@"after delete mstr1: %@", mstr1);
-}
+@implementation OBDNSArrayDemo
 
 // https://developer.apple.com/documentation/foundation/nsarray?language=objc
 #pragma mark - NSArray & NSMutableArray
@@ -201,7 +92,7 @@
 }
 
 
-// 创建静态数组
+#pragma mark - 创建静态数组
 + (void)createArray {
     NSLog(@"***Creating an Array***");
     // 创建空数组
@@ -246,7 +137,7 @@
 }
 
 
-// 初始化静态数组
+#pragma mark - 初始化静态数组
 + (void)initArray
 {
     NSLog(@"***Initializing an Array***");
@@ -272,7 +163,7 @@
 }
 
 
-// 查询与遍历元素
+#pragma mark - 查询与遍历元素
 + (void)queryArray
 {
     NSLog(@"***Querying an Array***");
@@ -325,7 +216,7 @@
 }
 
 
-// 查询元素位置
+#pragma mark - 查询元素位置
 + (void)findObjectInArray
 {
     NSLog(@"***Finding Objects in an Array***");
@@ -377,7 +268,7 @@
 }
 
 
-// 向数组元素发送消息
+#pragma mark - 向数组元素发送消息
 + (void)sendMessageToArrayElements
 {
     NSLog(@"***Sending Messages to Elements***");
@@ -415,7 +306,7 @@
 }
 
 
-// 数组比较
+#pragma mark - 数组比较
 + (void)compareArray
 {
     NSLog(@"***Comparing Arrays***");
@@ -432,7 +323,7 @@
 }
 
 
-// 生成新数组
+#pragma mark - 生成新数组
 + (void)deriveNewArray
 {
     NSLog(@"***Deriving New Arrays***");
@@ -458,7 +349,7 @@
 }
 
 
-// 数组排序
+#pragma mark - 数组排序
 NSInteger sortByFunction(NSString * obj1, NSString * obj2, void * context)
 {
     return [obj1 compare:obj2];
@@ -495,7 +386,7 @@ NSInteger sortByFunction(NSString * obj1, NSString * obj2, void * context)
 }
 
 
-// 处理字符串数组
+#pragma mark - 处理字符串数组
 + (void)workWithStringArrayElements
 {
     NSLog(@"***Working with String Elements***");
@@ -507,7 +398,7 @@ NSInteger sortByFunction(NSString * obj1, NSString * obj2, void * context)
 }
 
 
-// 创建描述信息
+#pragma mark - 创建描述信息
 + (void)creatArrayDescription {
     NSLog(@"***Creating a Description***");
     NSArray<NSString *> *array = [NSArray arrayWithObjects:@"One", @"Two", @"Three", nil];
@@ -531,7 +422,7 @@ NSInteger sortByFunction(NSString * obj1, NSString * obj2, void * context)
     write = [array writeToURL:[NSURL fileURLWithPath:filePath] atomically:YES];
 }
 
-// 测试数据
+#pragma mark - 测试数据
 + (NSString *)testData {
     // 获取应用中Document文件夹
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -547,7 +438,7 @@ NSInteger sortByFunction(NSString * obj1, NSString * obj2, void * context)
 }
 
 
-// 动态数组初始化
+#pragma mark - 动态数组初始化
 + (void)creatAndInitMutalbeArray {
     NSLog(@"***Creating and Initializing a Mutable Array***");
     NSString *filePath = [self testData];
@@ -570,7 +461,8 @@ NSInteger sortByFunction(NSString * obj1, NSString * obj2, void * context)
     NSLog(@"[[NSMutableArray alloc] initWithContentsOfURL:[NSURL fileURLWithPath:]]: %@", mArray);
 }
 
-// 动态数组增加元素
+
+#pragma mark - 动态数组增加元素
 + (void)addMutableArray {
     NSLog(@"***Adding Objects***");
     NSMutableArray *mArray = [NSMutableArray array];
@@ -596,7 +488,7 @@ NSInteger sortByFunction(NSString * obj1, NSString * obj2, void * context)
 }
 
 
-// 动态数组删除数据
+#pragma mark - 动态数组删除数据
 + (void)removMutalbeArray {
     NSLog(@"***Removing Objects***");
     NSMutableArray *mArray = [NSMutableArray arrayWithObjects:@"One", @"Two", @"Three", @"Four", @"Five", nil];
@@ -644,7 +536,7 @@ NSInteger sortByFunction(NSString * obj1, NSString * obj2, void * context)
 }
 
 
-// 动态数组替换元素
+#pragma mark - 动态数组替换元素
 + (void)replacMutableArray{
     NSLog(@"***Replacing Objects***");
     NSMutableArray *mArray = [NSMutableArray arrayWithObjects:@"One", @"Two", @"Three", nil];
@@ -680,7 +572,8 @@ NSInteger sortByFunction(NSString * obj1, NSString * obj2, void * context)
     NSLog(@"[mArray replaceObjectsInRange:withObjectsFromArray:]: %@", mArray);
 }
 
-// 动态数组过滤
+
+#pragma mark - 动态数组过滤
 + (void)filterMutalbeArray {
     NSLog(@"***Filtering Content***");
     NSMutableArray *mArray = [NSMutableArray arrayWithObjects:@"One", @"Two", @"Three", nil];
@@ -699,13 +592,13 @@ NSInteger sortByFunction(NSString * obj1, NSString * obj2, void * context)
     NSLog(@"[mArray filterUsingPredicate]: %@", mArray);
 }
 
-// 动态数组排序
+
+#pragma mark - 动态数组排序
 NSInteger mSortByFunction(NSString * obj1, NSString * obj2, void * context) {
     return [obj1 compare:obj2];
 }
 
 
-// 动态数组排序
 + (void)sortMutableArray {
     NSLog(@"***Rearranging Content***");
     
