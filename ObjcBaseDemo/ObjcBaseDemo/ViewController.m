@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "OBDNSStringDemo.h"
 #import "OBDNSArrayDemo.h"
+#import "OBDNSDictionaryDemo.h"
 
 @interface ViewController ()
 
@@ -21,7 +22,8 @@
     // Do any additional setup after loading the view.
     // 测试 case
     //[OBDNSStringDemo obdNSStringDemo];
-    [OBDNSArrayDemo obdNSArrayDemo];
+    //[OBDNSArrayDemo obdNSArrayDemo];
+    [OBDNSDictionaryDemo obdNSDictionaryDemo];
 }
 
 
